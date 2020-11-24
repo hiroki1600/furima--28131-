@@ -17,8 +17,12 @@
 
 | Column | Type   | Options                             |
 | ------ | ------ | ------------------------------------|
-| item   | string | null: false                         |
-| user   | references | null: false, foreign_key: true  |
+| name   | string | null: false                         |
+| image  | string | null: false                         |
+| coment | string | null: false                         |
+| detale | string | null: false                         |
+| date of shipment| string | null: false                |
+| price  | string | null: false                         |
 
 ### Association
 
@@ -41,7 +45,7 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| address | string     |                                |
+| name | string     |                                |
 | purchse | references | null: false, foreign_key: true |
 
 ### Association
