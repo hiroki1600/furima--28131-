@@ -2,26 +2,28 @@
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
+| Column   | Type   | Options             |
+| -------- | ------ | -----------         |
+| nickname | string | null: false         |
+| first_name| string | null: false        |
+| last_name | string | null: false        |
+| first_name_kana  | string | null: false |
+| last_name_kana   | string | null: false |
+| birthday  | date | null: false          |
 
 ### Association
 
 - has_many :product
 
 
-## product テーブル
+## item テーブル
 
 | Column | Type   | Options                             |
 | ------ | ------ | ------------------------------------|
 | name   | string | null: false                         |
-| image  | string | null: false                         |
-| coment | string | null: false                         |
-| detale | string | null: false                         |
-| date of shipment| string | null: false                |
+| text   | string | null: false                         |
+| category | string | null: false                       |
+| status | string | null: false                         |
 | price  | string | null: false                         |
 
 ### Association
@@ -31,10 +33,10 @@
 
 ## purchase テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| record  | string    | null: false, foreign_key: true |
-| product | references | null: false, foreign_key: true|
+| Column | Type       | Options                       |
+| ------ | ---------- | ------------------------------|
+| user   | references | null: false, foreign_key: true|
+| item   | references | null: false, foreign_key: true|
 
 ### Association
 
@@ -45,8 +47,9 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| name | string     |                                |
-| purchse | references | null: false, foreign_key: true |
+| shipping_fee | string | null: false                   |
+| prefecture | string  | null: false                    |
+| scheduled-delivery  | string | null: false           |
 
 ### Association
 
