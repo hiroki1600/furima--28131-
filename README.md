@@ -5,7 +5,7 @@
 | Column   | Type   | Options             |
 | -------- | ------ | -----------         |
 | nickname | string | null: false         |
-| email     | string | null: false, unique: true         |
+| email     | string | null: false, unique: true  |
 | encrypted_password | string | null: false|
 | first_name| string | null: false        |
 | last_name | string | null: false        |
@@ -15,8 +15,8 @@
 
 ### Association
 
-- has_many :item
-- has_many :purchase
+- has_many :items
+- has_many :purchases
 
 
 ## item テーブル
@@ -27,7 +27,7 @@
 | text   | text | null: false                           |
 | category_id | integer | null: false                   |
 | status_id | integer | null: false                     |
-| shipping_fee | integer | null: false                  |
+| shipping_fee_id | integer | null: false                  |
 | prefecture_id | integer  | null: false                |
 | scheduled_delivery_id  | integer | null: false        |
 | price  | integer | null: false                        |
