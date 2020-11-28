@@ -19,7 +19,7 @@
 - has_many :purchases
 
 
-## item テーブル
+## items テーブル
 
 | Column | Type   | Options                             |
 | ------ | ------ | ------------------------------------|
@@ -38,7 +38,7 @@
 - has_one :purchse
 - belongs_to :user
 
-## purchase テーブル
+## purchases テーブル
 
 | Column | Type       | Options                       |
 | ------ | ---------- | ------------------------------|
@@ -51,7 +51,7 @@
 - has_one :address
 - belongs_to :user
 
-## address テーブル
+## addresses テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
