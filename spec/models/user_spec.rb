@@ -117,6 +117,16 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name kana is invalid. Input full-width katakana characters.")
       end
+      it "passwordが数字のみだと登録できない" do
+        @user.password = '111111'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password passwordには英字と数字の両方を含めて設定してください")
+      end
+      it "passwordが数字のみだと登録できない" do
+        @user.password = 'aaaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password passwordには英字と数字の両方を含めて設定してください")
+      end
       it "birthdayが空だと登録できない" do
         @user.birthday = ''
         @user.valid?
