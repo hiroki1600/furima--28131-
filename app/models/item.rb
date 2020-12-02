@@ -11,7 +11,9 @@ class Item < ApplicationRecord
   validates :price, presence: true,
                     format: { with: /\A[0-9]+\z/ }, 
                     numericality: { in: 300..9999999 }
+  validates :image, presence: true
 
+  has_one_attached :image
 
   belongs_to :item
 
