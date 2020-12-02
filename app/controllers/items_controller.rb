@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
   end
 
   def create
@@ -18,12 +19,12 @@ class ItemsController < ApplicationController
  private
 
   def move_to_index
-    unless user_sign_in?
+    unless user_signed_in?
       redirect_to action: :index
     end
   end
 
-  def user_params
+  def item_params
     params.require(:item).permit(:name, :text, :category, :status, :shopping_fee_id, :prefecture_id, :scheduled_delivery_id, :peice, :image)
   end
 
