@@ -4,12 +4,15 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name, length: {maximum: 40 }
     validates :text
-    validates :category_id, numericality: { other_than: 1 }
-    validates :status_id, numericality: { other_than: 1 }
-    validates :shopping_fee_id, numericality: { other_than: 1 }
-    validates :scheduled_delivery_id, numericality: { other_than: 1 }
     validates :price, format: { with: /\A[0-9]+\z/ }
     validates :image
+  end
+
+  with_options umericality: { other_than: 1 } do
+    validates :category_id
+    validates :status_id
+    validates :shopping_fee_id
+    validates :scheduled_delivery_id
   end
 
   validates :prefecture_id, numericality: { other_than: 0 }
