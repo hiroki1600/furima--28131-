@@ -93,7 +93,7 @@ describe User do
       it "last_nameが半角だと登録できない" do
         @user.last_name = 'furukawa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name is invalid. Input full-width characters.")
+        expect(@user.c).to include("Last name is invalid. Input full-width characters.")
       end
       it "first_name_kanaが空だと登録できない" do
         @user.first_name_kana = ''

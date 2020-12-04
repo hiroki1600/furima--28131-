@@ -1,17 +1,17 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  validates :name, presence: true, 
-                   length: {maximum: 40 }
+  validates :name, presence: true
+  validates :name, length: {maximum: 40 }
   validates :text, presence: true
   validates :category_id, numericality: { other_than: 1 }
   validates :status_id, numericality: { other_than: 1 }
   validates :shopping_fee_id, numericality: { other_than: 1 }
   validates :prefecture_id, numericality: { other_than: 0 }
   validates :scheduled_delivery_id, numericality: { other_than: 1 }
-  validates :price, presence: true,
-                    format: { with: /\A[0-9]+\z/ }, 
-                    numericality: { in: 300..9999999 }
+  validates :price, presence: true
+  validates :price, format: { with: /\A[0-9]+\z/ }
+  validates_inclusion_of :price, in: 300..9_999_999
   validates :image, presence: true
 
   has_one_attached :image
