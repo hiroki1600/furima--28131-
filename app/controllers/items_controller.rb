@@ -29,10 +29,10 @@ class ItemsController < ApplicationController
   def update
   end
 
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy
-  end
+  #def destroy
+    #item = Item.find(params[:id])
+    #tem.destroy
+  #end
 
  private
 
