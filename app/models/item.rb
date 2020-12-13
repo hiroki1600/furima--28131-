@@ -19,6 +19,7 @@ class Item < ApplicationRecord
   validates_inclusion_of :price, in: 300..9_999_999
 
   has_one_attached :image
+  has_one :order
 
   belongs_to :user
   belongs_to :category
