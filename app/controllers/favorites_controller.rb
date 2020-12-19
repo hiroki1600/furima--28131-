@@ -6,8 +6,9 @@ def create
 end
 
 def destroy
-  @item = Item.find(params[item_id])
+  @item = Item.find(params[:id])
   @favorite = current_user.favorites.find_by(item: @item.id)
+  @favorite.destroy
   redirect_back(fallback_location: root_path)
 end
 
