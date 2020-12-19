@@ -18,6 +18,8 @@ class Item < ApplicationRecord
   validates :prefecture_id, numericality: { other_than: 0 }
   validates_inclusion_of :price, in: 300..9_999_999
 
+  has_many :favorites, dependent: :destroy
+
   has_one_attached :image
   has_one :order
 
