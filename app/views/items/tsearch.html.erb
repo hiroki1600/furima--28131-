@@ -127,14 +127,24 @@
     <ul class='item-lists'>
 
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-    <% @items.each do |item| %>
-      <li class='list'>
-        <%= link_to item_path(item.id) do %>
+
+
+  <h1>
+  検索結果
+  </h1>
+  <%# 検索結果の個数で条件分岐 %>
+  <% if @results.length !=0 %>
+    <% @results.each do |result| %>
+      <td>
+      <br>
+
+       <li class='list'>
+        <%= link_to item_path(result.id) do %>
          <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" %>
+          <%= image_tag result.image, class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
-        <% if item.order.present? %>
+        <% if result.order.present? %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
@@ -144,10 +154,10 @@
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= item.name %>
+            <%= result.name %>
           </h3>
           <div class='item-price'>
-            <span><%= item.price %>円<br><%= item.shopping_fee.name %></span>
+            <span><%= result.price %>円<br><%= result.shopping_fee.name %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
@@ -156,7 +166,13 @@
         </div>
         <% end %>
       </li>
+
     <% end %>
+  <% else %>
+    該当する商品はありません
+  <% end %>
+  <br>
+
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <%# 商品がない場合のダミー %>
       <%# 商品がある場合は表示されないようにしましょう %>
