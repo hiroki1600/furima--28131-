@@ -1,9 +1,11 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:edit, :show, :update, :destroy]
+  before_action :search_item, only: [:index, :search, :show, :tsearch]
 
   def index
     @items = Item.all
+    set_product_column
   end
 
   def new
@@ -50,7 +52,16 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword])
   end
 
- private
+  def tsearch
+    @results = @p.result
+  end
+  
+  private
+  
+  def search_item
+    @p = Item.ransack(params[:q]) 
+    set_product_column
+  end
 
   def item_params
     params.require(:item).permit(:name, :text, :category_id, :status_id, :shopping_fee_id, :prefecture_id, :scheduled_delivery_id, :price, :image).merge(user_id: current_user.id)
@@ -58,6 +69,12 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_product_column 
+    @item_category = Category.all
+    @item_status = Status.all
+    @item_shopping_fee = ShoppingFee.all
   end
 
 end

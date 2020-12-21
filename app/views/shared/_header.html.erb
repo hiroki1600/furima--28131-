@@ -9,6 +9,30 @@
       </label>
     <% end %>
   </div>
+
+  <h1>
+    商品検索
+  </h1>
+  <%= search_form_for @p, url: items_tsearch_path do |f| %>
+    <%= f.label :name_eq, 'カテゴリー' %>
+    <%= f.collection_select :category_id_eq, @item_category, :name, :name,  include_blank: '指定なし' %>
+    <br>
+    <%= f.label :name_eq, '商品状態' %>
+    <%= f.collection_select :status_id_eq, @item_status, :name, :name,  include_blank: '指定なし' %>
+    <br>
+    <%= f.label :price, '価格：' %>
+    <%= f.radio_button :price_lteq, '' %>
+    指定なし
+    <%= f.radio_button :price_lteq, '1000' %>
+    1000円以下
+    <%= f.radio_button :price_lteq, '5000' %>
+    5000円以下
+    <%= f.radio_button :price_lteq, '10000' %>
+    10000円以下
+    <br>
+    <%= f.submit '検索' %>
+  <% end %>
+
   <div class='nav'>
     <ul class='lists-left'>
       <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
