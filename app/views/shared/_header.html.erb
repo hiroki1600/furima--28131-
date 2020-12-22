@@ -15,10 +15,10 @@
   </h1>
   <%= search_form_for @p, url: items_tsearch_path do |f| %>
     <%= f.label :name_eq, 'カテゴリー' %>
-    <%= f.collection_select :category_id_eq, @item_category, :name, :name,  include_blank: '指定なし' %>
+    <%= f.collection_select :category_id_eq, @item_category, :id, :name,  include_blank: '指定なし' %>
     <br>
     <%= f.label :name_eq, '商品状態' %>
-    <%= f.collection_select :status_id_eq, @item_status, :name, :name,  include_blank: '指定なし' %>
+    <%= f.collection_select :status_id_eq, @item_status, :id, :name,  include_blank: '指定なし' %>
     <br>
     <%= f.label :price, '価格：' %>
     <%= f.radio_button :price_lteq, '' %>
