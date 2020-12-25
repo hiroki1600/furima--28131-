@@ -80,3 +80,17 @@
 
 - belongs_to :item
 - belongs_to :user
+
+
+### message テーブル
+
+| Column | Type       | Options                       |
+| ------ | ---------- | ------------------------------|
+| content| string     |                               |
+| user   | references | 　　　　　　　 foreign_key: true|
+| item   | references | 　　　　　　　 foreign_key: true|
+
+### Association
+
+- belongs_to :item
+- belongs_to :user
