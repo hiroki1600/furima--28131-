@@ -17,6 +17,7 @@ class User < ApplicationRecord
 
  has_many :items
  has_many :favorites, dependent: :destroy
+ has_many :messages
 
  def already_favorited?(item)
   self.favorites.exists?(item_id: item.id)

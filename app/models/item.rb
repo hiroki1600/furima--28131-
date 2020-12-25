@@ -19,6 +19,7 @@ class Item < ApplicationRecord
   validates_inclusion_of :price, in: 300..9_999_999
 
   has_many :favorites, dependent: :destroy
+  has_many :messages
 
   has_one_attached :image
   has_one :order
