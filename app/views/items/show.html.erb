@@ -106,6 +106,19 @@
         <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
         <span>コメントする<span>
       </button>
+      <div class="comments">
+        <% @messages.each do |message| %>
+          <li class="comment-li">
+              <h3 class="comment-name" >
+                <%= coment.user_name %>
+              </h3>
+            <div class="comment-box">
+              <p class="comment">
+                <%= message.content %>
+              </p>
+            </div>
+          </li>
+      </div>
     </form>
   </div>
   <div class="links">
