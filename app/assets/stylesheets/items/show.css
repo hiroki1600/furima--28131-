@@ -204,3 +204,35 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.fukidasi-box {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+}
+
+.fukidasi-box:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}
+
+.comment {
+  margin: 0;
+  padding: 0;
+}
+
+.comment-li {
+  list-style: none;
+  display: flex;
+}
