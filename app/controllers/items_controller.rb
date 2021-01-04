@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :search_item, only: [:index, :search, :show, :tsearch]
 
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC")
     set_product_column
   end
 
@@ -23,6 +23,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @message = Message.new
+    @item = Item.find(params[:id])
+    @messages = @item.messages.includes(:user).order("created_at DESC")
   end
 
   def edit

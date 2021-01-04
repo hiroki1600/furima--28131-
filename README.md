@@ -73,8 +73,8 @@
 
 | Column | Type       | Options                       |
 | ------ | ---------- | ------------------------------|
-| user   | references | 　　　　　　　 foreign_key: true|
-| item   | references | 　　　　　　　 foreign_key: true|
+| user   | references |              foreign_key: true|
+| item   | references |              foreign_key: true|
 
 ### Association
 
@@ -86,9 +86,9 @@
 
 | Column | Type       | Options                       |
 | ------ | ---------- | ------------------------------|
-| content| string     |                               |
-| user   | references | 　　　　　　　 foreign_key: true|
-| item   | references | 　　　　　　　 foreign_key: true|
+| content| string     |              null: false      |
+| user   | references |              foreign_key: true|
+| item   | references |              foreign_key: true|
 
 ### Association
 
