@@ -18,7 +18,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication
     else
       @sns_id = sns_info[:sns].id
-      binding.pry
       render template: 'devise/registrations/new'
     end
   end
