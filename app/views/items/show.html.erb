@@ -73,8 +73,9 @@
         </tr>
       </tbody>
     </table>
-    <div class="option">
-      <% if user_signed_in? %>
+
+    <% if user_signed_in? %>
+      <div class="option">
         <div class="favorite-btn", id="favorite">
           <%= image_tag "star.png" ,class:"favorite-star-icon", id:"favorite", width:"20",height:"20"%>
           <span>
@@ -85,14 +86,15 @@
             <% end %>
             <%= @item.favorites.count %>
           </span>
-      <% end %>
+        </div>
 
+        <div class="report-btn">
+          <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+          <span>不適切な商品の通報</span>
+        </div>
       </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な商品の通報</span>
-      </div>
-    </div>
+    <% end %>
+    
   </div>
   <%# /商品の概要 %>
 
