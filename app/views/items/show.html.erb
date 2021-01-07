@@ -74,16 +74,18 @@
       </tbody>
     </table>
     <div class="option">
-      <div class="favorite-btn", id="favorite">
-        <%= image_tag "star.png" ,class:"favorite-star-icon", id:"favorite", width:"20",height:"20"%>
-        <span>
-          <% if current_user.already_favorited?(@item) %>
-            <%= link_to 'お気に入りを外す', item_favorite_path(@item.id), method: :delete %>
-          <% else %>
-            <%= link_to 'お気に入りに登録する', item_favorites_path(@item.id), method: :post %>
-          <% end %>
-          <%= @item.favorites.count %>
-        </span>
+      <% if user_signed_in? %>
+        <div class="favorite-btn", id="favorite">
+          <%= image_tag "star.png" ,class:"favorite-star-icon", id:"favorite", width:"20",height:"20"%>
+          <span>
+            <% if current_user.already_favorited?(@item) %>
+              <%= link_to 'お気に入りを外す', item_favorite_path(@item.id), method: :delete %>
+            <% else %>
+              <%= link_to 'お気に入りに登録する', item_favorites_path(@item.id), method: :post %>
+            <% end %>
+            <%= @item.favorites.count %>
+          </span>
+      <% end %>
 
       </div>
       <div class="report-btn">
